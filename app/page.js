@@ -1,48 +1,37 @@
 // app/page.js
+import HeroSection from "@/components/HeroSection";
+import About from "@/components/About";
+import Projects from "@/components/Projects";
+import Testimonials from "@/components/Testimonials";
+import Services from "@/components/Services";
+import Contact from "@/components/Contact";
+
 export default function Home() {
   return (
-    <>
-      <section
-        id="home"
-        className="min-h-screen flex items-center justify-center bg-white"
-      >
-        <h1 className="text-3xl">Home Section</h1>
+    <main>
+      <section id="home">
+        <HeroSection />
       </section>
 
-      <section
-        id="about"
-        className="min-h-screen flex items-center justify-center bg-gray-100"
-      >
-        <h2 className="text-2xl">About Section</h2>
+      <section id="about">
+        <About />
       </section>
 
-      <section
-        id="projects"
-        className="min-h-screen flex items-center justify-center bg-white"
-      >
-        <h2 className="text-2xl">Projects Section</h2>
+      <section id="projects">
+        <Projects />
       </section>
 
-      <section
-        id="testimonials"
-        className="min-h-screen flex items-center justify-center bg-gray-100"
-      >
-        <h2 className="text-2xl">Testimonials Section</h2>
+      <section id="testimonials">
+        <Testimonials />
       </section>
 
-      <section
-        id="services"
-        className="min-h-screen flex items-center justify-center bg-white"
-      >
-        <h2 className="text-2xl">Services Section</h2>
+      <section id="services">
+        <Services />
       </section>
 
-      <section
-        id="contact"
-        className="min-h-screen flex items-center justify-center bg-gray-100"
-      >
-        <h2 className="text-2xl">Contact Section</h2>
+      <section id="contact">
+        <Contact />
       </section>
-    </>
+    </main>
   );
 }
