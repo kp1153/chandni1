@@ -1,9 +1,15 @@
 {
   "redirects": [
     {
-      "source": "https://www.interiordesignerchandni.com/:path*",
+      "source": "/:path*",
       "destination": "https://interiordesignerchandni.com/:path*",
-      "permanent": true
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "www.interiordesignerchandni.com"
+        }
+      ]
     }
   ]
 }
