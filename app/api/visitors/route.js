@@ -22,10 +22,10 @@ export async function GET() {
 
 export async function POST() {
   try {
-    const settings = await client.fetch(`*[_type == "siteSettings"][0]._id`);
+    const settingsId = await client.fetch(`*[_type == "siteSettings"][0]._id`);
 
-    if (settings) {
-      await client.patch(settings).inc({ visitorCount: 1 }).commit();
+    if (settingsId) {
+      await client.patch(settingsId).inc({ visitorCount: 1 }).commit();
     } else {
       await client.create({
         _type: "siteSettings",
