@@ -24,9 +24,9 @@ export default function Visitors() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-indigo-500 to-purple-600 py-8 px-6">
+    <div className="bg-zinc-900 py-8 px-6">
       <div className="max-w-4xl mx-auto">
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/20 shadow-xl">
+        <div className="bg-zinc-800 rounded-2xl p-6 md:p-8 shadow-xl border border-zinc-700">
           {isLoading && (
             <div className="text-center space-y-4">
               <div className="flex items-center justify-center gap-3">
