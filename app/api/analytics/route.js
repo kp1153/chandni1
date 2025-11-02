@@ -22,13 +22,12 @@ export async function GET() {
     const response = await analyticsDataClient.properties.runReport({
       property: `properties/${process.env.GA_PROPERTY_ID}`,
       requestBody: {
-        metrics: [{ name: "totalUsers" }],
-
-        dateRanges: [{ startDate: "2025-01-01", endDate: "today" }],
+        metrics: [{ name: "activeUsers" }],
+        dateRanges: [{ startDate: "2020-01-01", endDate: "today" }],
       },
     });
 
-    const visitors = response.data.rows?.[0].metricValues?.[0]?.value || "0";
+    const visitors = response.data.rows?.[0]?.metricValues?.[0]?.value || "0";
 
     return new Response(JSON.stringify({ visitors }), {
       status: 200,

@@ -8,24 +8,25 @@ export default function Visitors() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
-    fetch("/api/analytics")
-      .then((res) => res.json())
-      .then((data) => {
+    const incrementVisitor = async () => {
+      try {
+        const res = await fetch("/api/visitors", { method: "POST" });
+        const data = await res.json();
         setVisitors(data.visitors);
         setIsLoading(false);
-      })
-      .catch(() => {
+      } catch {
         setError(true);
         setIsLoading(false);
-      });
+      }
+    };
+
+    incrementVisitor();
   }, []);
 
   return (
     <div className="bg-gradient-to-r from-indigo-500 to-purple-600 py-8 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/20 shadow-xl">
-          {/* Loading State */}
           {isLoading && (
             <div className="text-center space-y-4">
               <div className="flex items-center justify-center gap-3">
@@ -38,7 +39,6 @@ export default function Visitors() {
             </div>
           )}
 
-          {/* Error State */}
           {error && !isLoading && (
             <div className="text-center">
               <p className="text-lg font-semibold text-white flex items-center justify-center gap-2">
@@ -48,12 +48,11 @@ export default function Visitors() {
             </div>
           )}
 
-          {/* Success State */}
           {!isLoading && !error && visitors && (
             <div className="text-center space-y-3">
               <div className="flex items-center justify-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center shadow-lg animate-bounce">
-                  <span className="text-3xl">🌍</span>
+                  <span className="text-3xl">🌐</span>
                 </div>
                 <div className="text-left">
                   <p className="text-sm text-white/80 font-medium">
